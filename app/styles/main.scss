@@ -1,0 +1,55 @@
+body,
+html {
+  margin: 20px;
+  background: #cfd3d6;
+  font: message-box;
+}
+
+.loading-pane {
+  margin: 25px auto;
+}
+
+.loading-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.empty-page {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner {
+  background: url("/images/infinity.gif") no-repeat;
+  height: 106px;
+  width: 125px;
+  margin: 0 auto;
+}
+
+.cover-img {
+  height: 200px;
+  width: 285px;
+}
+
+.root-head {
+  color: #555;
+  text-decoration: none;
+  text-align: center;
+}
+
+.new-song {
+  width: 50%;
+}
+
+.new-song-button {
+  margin-left: 20px;
+}
+
+.list-group {
+  .list-group-item {
+    text-align: center;
+  }
+}

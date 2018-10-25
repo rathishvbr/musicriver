@@ -1,0 +1,35 @@
+{{! template-lint-disable }}
+
+<div class="col-md-12" style="text-align: -webkit-center;">
+  <div class="col-md-2">
+    <button type="button" class="btn btn-dark" {{action "addSong"}}><span class="fa fa-plus"></span>&nbsp;Add song</button>
+  </div>
+</div>
+
+{{#each model as |song|}}
+  {{song-box model=song}}
+{{/each}}
+
+{{#unless model}}
+  <div class="col-md-12 empty-page">
+    <h1>
+      <span class="fa fa-frown-o"></span>
+      No songs here. Add some.
+      <span class="fa fa-music"></span>
+      <span class="fa fa-heart"></span>
+      <span class="fa fa-hand-spock-o"></span>
+    </h1>
+  </div>
+{{/unless}}
+
+{{#if songAddModal}}
+  {{#modal-dialog onClose=(action (mut songAddModal) false)
+    targetAttachment='none'
+    translucentOverlay=true
+    containerClass='centered-scrolling-container'
+    overlayClass='centered-scrolling-overlay'
+    wrapperClass='centered-scrolling-wrapper'
+    }}
+    {{add-or-edit-song item=addSong songAddModal=songAddModal newSong=true}}
+  {{/modal-dialog}}
+{{/if}}

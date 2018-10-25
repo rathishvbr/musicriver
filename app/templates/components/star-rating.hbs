@@ -1,0 +1,5 @@
+{{! template-lint-disable }}
+{{#each stars as |star|}}
+  <span class="song-star-rating fa {{if star.full 'fa-star' 'fa-star-o'}}" {{action "setRating" star.rating}}>
+  </span>
+{{/each}}

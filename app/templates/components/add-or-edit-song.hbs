@@ -1,0 +1,85 @@
+ {{! template-lint-disable }}
+<div class="modal-body">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        {{#if newSong}}
+          <h2> Add Song </h2>
+        {{else}}
+          <h2> Edit Song </h2>
+        {{/if}}
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Artist</label> {{input type="text" class="form-control" value=song.artistname}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Album</label> {{input type="text" class="form-control" value=song.albumname}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Genre(s)</label>
+
+        {{#power-select-multiple
+          options=genreOptions
+          selected=song.genres
+          placeholder="Select genres"
+          onchange=(action (mut song.genres))
+         as |option|
+         }}
+          {{option}}
+        {{/power-select-multiple}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Album Cover</label>
+        {{#x-file-input multiple=true action=(action "didSelectImg") accept="image/png,image/jpg"}}
+          <button type="button" class="btn btn-primary">
+            <span class="fa fa-upload"></span>
+          </button>
+        {{/x-file-input}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Year of release</label> {{input type="text" class="form-control" value=song.year}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Spotify link</label> {{input type="text" class="form-control" value=song.slink}}
+      </div>
+    </div>
+  </div>
+  {{#if newSong}}
+    <button type="submit" class="btn btn-success btn-block" {{action 'createSong'}} disabled={{disabled}}>
+      Create
+      {{#if showSpinner}}
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+      {{/if}}
+    </button>
+  {{else}}
+    <button type="submit" class="btn btn-success btn-block" {{action 'updateSong'}} disabled={{disabled}}>
+      Update
+      {{#if showSpinner}}
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+      {{/if}}
+    </button>
+  {{/if}}
+</div>
