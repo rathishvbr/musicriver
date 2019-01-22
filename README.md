@@ -1,7 +1,8 @@
 # musicriver
 
 It's just boilerplate for ember app from developement to production and deployed to heroku
-[Live Demo] (https://musicriver.herokuapp.com/songs)
+
+Live Demo https://musicriver.herokuapp.com/songs
 
 ## Prerequisites
 
