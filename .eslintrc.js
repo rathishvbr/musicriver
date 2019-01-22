@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */  // --> OFF
 module.exports = {
   globals: {
     server: true,
